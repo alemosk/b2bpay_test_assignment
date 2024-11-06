@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_json_api',
     'b2bpay.finances.wallets',
     'b2bpay.finances.transactions',
+    'b2bpay.finances.payments',
 ]
 
 MIDDLEWARE = [

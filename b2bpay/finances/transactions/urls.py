@@ -1,9 +1,9 @@
 from django.urls import path
 
-from b2bpay.finances.transactions.views import TransactionsAPIView
+from b2bpay.finances.transactions.views import TransactionsListAPIView
 
 app_name = "transactions"
 
 urlpatterns = [
-    path('', TransactionsAPIView.as_view(), name='list'),
+    path('', TransactionsListAPIView.as_view(), name='list'),
 ]

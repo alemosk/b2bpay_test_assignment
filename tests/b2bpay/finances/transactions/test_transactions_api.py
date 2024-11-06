@@ -9,9 +9,9 @@ class TransactionsAPITestCase(APITestCase):
     def test_get_transactions_list(self):
         transaction = TransactionFactory()
 
-        url = reverse("finances:transactions:list")
+        url = reverse('finances:transactions:list')
 
-        response = self.client.get(url, format="json")
+        response = self.client.get(url)
 
         assert response.status_code == status.HTTP_200_OK
         assert response.data['results'][0]['id'] == transaction.pk
