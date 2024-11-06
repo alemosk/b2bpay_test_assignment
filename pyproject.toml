@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "b2bpay-test-assigment"
+version = "0.1.0"
+description = "B2Broker test assigment"
+authors = ["Aleksei Baranov <aleksei.ee@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+djangorestframework-jsonapi = {extras = ["django-filter"], version = "^7.1.0"}
+pytest = "^8.3.3"
+factory-boy = "^3.3.1"
+flake8 = "^7.1.1"
+pytest-django = "^4.9.0"
+django-environ = "^0.11.2"
+mysqlclient = "^2.2.5"
+isort = "^5.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
