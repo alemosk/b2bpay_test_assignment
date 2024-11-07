@@ -17,9 +17,9 @@ class TransactionsListCreateAPIView(ListCreateAPIView):
     )
 
     filterset_fields = {
-       'id': ('exact', 'lt', 'gt', 'gte', 'lte'),
-       'amount': ('exact', 'lt', 'gt', 'gte', 'lte'),
-       'wallet': ('exact', 'lt', 'gt', 'gte', 'lte'),
+       'id': ('exact', 'lt', 'gt', 'gte', 'lte', 'in'),
+       'amount': ('exact', 'lt', 'gt', 'gte', 'lte', 'in'),
+       'wallet': ('exact', 'lt', 'gt', 'gte', 'lte', 'in'),
        'txid': ('exact', 'iexact', 'startswith'),
     }
     ordering_fields = ['id', 'amount', 'wallet', 'txid']

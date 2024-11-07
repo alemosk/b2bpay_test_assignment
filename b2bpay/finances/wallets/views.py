@@ -17,7 +17,7 @@ class WalletsListCreateAPIView(ListCreateAPIView):
     )
 
     filterset_fields = {
-       'id': ('exact', 'lt', 'gt', 'gte', 'lte'),
-       'balance': ('exact', 'lt', 'gt', 'gte', 'lte'),
+       'id': ('exact', 'lt', 'gt', 'gte', 'lte', 'in'),
+       'balance': ('exact', 'lt', 'gt', 'gte', 'lte', 'in'),
        'label': ('exact', 'iexact', 'startswith'),
     }
