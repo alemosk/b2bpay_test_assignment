@@ -14,18 +14,21 @@ class Transaction(models.Model):
         on_delete=models.PROTECT,
     )
     # The task does not contain requirements for the maximum length of the transaction ID,
-    # so we will use the length of SHA-256 (hex) hash for transaction IDs.
-    # This size also allows storing UUID4 as a transaction ID.
-    # https://en.bitcoin.it/wiki/Protocol_documentation#Short_transaction_ID
-    txid = models.CharField(max_length=64, unique=True)
+    # so we will use the length of UUID4 for transaction IDs.
+    txid = models.CharField(
+        max_length=36,
+        unique=True,
+    )
 
     amount = models.DecimalField(
         # The maximum length is not specified in the task, so we will use the MySQL DECIMAL maximum value (65).
         # https://dev.mysql.com/doc/refman/8.4/en/precision-math-decimal-characteristics.html
         max_digits=65,
-        decimal_places=18
+        decimal_places=18,
+        # we use index because we allow users to sort and filter data by this value.
+        db_index=True,
     )
 
     class Meta:
         db_table = 'finances_transactions'
-        ordering = ('-id', )
+        ordering = ('id', )
