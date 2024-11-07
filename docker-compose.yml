@@ -1,4 +1,22 @@
 services:
+  nginx:
+    # image: nginx-b_demo:latest
+    build:
+      context: deployment/nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    depends_on:
+      - wsgi
+
+  wsgi:
+    # image: b2bpay:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /bin/bash ./docker-entrypoint-wsgi.sh
+    depends_on:
+      - db
 
   db:
     image: mysql:8

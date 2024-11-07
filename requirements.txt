@@ -1,0 +1,8 @@
+djangorestframework-jsonapi
+djangorestframework-jsonapi[django-filter]
+pytest
+pytest-django
+mysqlclient
+django-environ
+factory_boy
+alembic
