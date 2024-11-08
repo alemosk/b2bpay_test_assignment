@@ -1,12 +1,10 @@
 from decimal import Decimal
 
 from django.urls import reverse
-
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from b2bpay.finances.wallets.models import Wallet
-from b2bpay.tests.factories import WalletFactory, TransactionFactory
+from b2bpay.tests.factories import WalletFactory
 
 
 class WalletsAPITestCase(APITestCase):

@@ -1,10 +1,8 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
-from rest_framework_json_api import filters
-from rest_framework_json_api import django_filters
+from rest_framework_json_api import django_filters, filters
 
 from b2bpay.finances.transactions.models import Transaction
 from b2bpay.finances.transactions.serializers import TransactionSerializer
-from b2bpay.finances.transactions.services import create_transaction
 
 
 class TransactionsListCreateAPIView(ListCreateAPIView):

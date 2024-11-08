@@ -1,10 +1,9 @@
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework_json_api import django_filters, filters
 
 from b2bpay.finances.wallets.models import Wallet
 from b2bpay.finances.wallets.serializers import WalletSerializer
-from rest_framework_json_api import filters
-from rest_framework_json_api import django_filters
 
 
 class WalletsListCreateAPIView(ListCreateAPIView):

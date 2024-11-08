@@ -1,6 +1,6 @@
 from django.urls import path
 
-from b2bpay.finances.wallets.views import WalletsListCreateAPIView, WalletsDetailAPIView
+from b2bpay.finances.wallets.views import WalletsDetailAPIView, WalletsListCreateAPIView
 
 app_name = "wallets"
 

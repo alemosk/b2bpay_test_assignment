@@ -1,6 +1,6 @@
 from django.urls import path
 
-from b2bpay.finances.transactions.views import TransactionsListCreateAPIView,TransactionsDetailAPIView
+from b2bpay.finances.transactions.views import TransactionsDetailAPIView, TransactionsListCreateAPIView
 
 app_name = "transactions"
 
