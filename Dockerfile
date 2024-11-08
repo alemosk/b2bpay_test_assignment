@@ -1,5 +1,6 @@
 FROM python:3.11-bookworm AS base
 
+RUN apt update && apt install -y default-mysql-client
 ENV APP_HOME=/src
 ENV APP_USER=appuser
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -25,9 +26,12 @@ RUN echo $TZ > /etc/timezone && apt-get update && \
 RUN pip install --upgrade pip setuptools
 RUN pip install gunicorn
 
+ADD requirements.txt $APP_HOME
+ADD pyproject.toml $APP_HOME
+RUN pip install -r requirements.txt
+
 ADD . $APP_HOME
 
-RUN pip install -r requirements.txt
 
 RUN chown -R $APP_USER:$APP_USER $APP_HOME
 USER $APP_USER
