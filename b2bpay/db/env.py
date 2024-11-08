@@ -1,15 +1,16 @@
 import os
 from logging.config import fileConfig
 
+import django
+from alembic import context
 from sqlalchemy import create_engine
 
-from alembic import context
+from b2bpay.db.models import metadata
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "b2bpay.config.settings")
 
-import django
 django.setup()
-from django.conf import settings
+from django.conf import settings  # noqa: E402
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -20,7 +21,6 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-from b2bpay.db.models import metadata
 
 target_metadata = metadata
 db_settings = settings.DATABASES['default']

@@ -1,17 +1,16 @@
-version: '3'
 services:
-  nginx:
-    # image: nginx-b_demo:latest
+  b2bpay_proxy:
+    image: alemosk/b2bpay_proxy:latest
     build:
       context: deployment/nginx
       dockerfile: Dockerfile
     ports:
       - 8000:80
     depends_on:
-      - wsgi
+      - b2bpay
 
-  wsgi:
-    # image: b2bpay:latest
+  b2bpay:
+    image: alemosk/b2bpay:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -19,6 +18,8 @@ services:
     env_file: ./.env
     depends_on:
       - db
+    volumes:
+      - .env:/src/.env
 
   db:
     image: mysql:8
@@ -27,11 +28,6 @@ services:
       - ${DB_PORT}:3306
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
 
     volumes:
       - ./deployment/mysql/init-databases.sql:/docker-entrypoint-initdb.d/init-databases.sql
