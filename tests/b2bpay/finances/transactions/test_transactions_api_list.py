@@ -40,6 +40,7 @@ class TransactionsAPITestCase(APITestCase):
         wallet.refresh_from_db()
 
         assert response.status_code == status.HTTP_201_CREATED
+        assert response.data['id'] is not None
         assert response.data['txid'] == txid
         assert response.data['amount'] == '100.000000000000000000'
         assert response.data['wallet'] == wallet.pk
@@ -77,6 +78,7 @@ class TransactionsAPITestCase(APITestCase):
         wallet.refresh_from_db()
 
         assert response.status_code == status.HTTP_201_CREATED
+        assert response.data['id'] is not None
         assert response.data['txid'] == txid
         assert response.data['amount'] == '-100.000000000000000000'
         assert response.data['wallet'] == wallet.pk

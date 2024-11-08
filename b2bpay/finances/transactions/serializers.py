@@ -12,12 +12,14 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = '__all__'
-        # resource_name = 'Transaction'
 
     def save(self, **kwargs):
         # the save logic implemented in the different method due to balance calculation and balance check reason.
-        return create_transaction(
+        transaction = create_transaction(
             self.validated_data['wallet'],
             self.validated_data['txid'],
             self.validated_data['amount'],
         )
+        self.instance = transaction
+
+        return self.instance
