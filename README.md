@@ -249,3 +249,7 @@ In git commit comments, I use the format `<Ticket number>: comment`. In my exper
 s generally less significant than the ticket number, which is essential for future incident investigations.
 
 For this project, I use `flake8` for linting and `isort` for sorting imports.
+
+I didn't use git branches and committed everything to the main branch because this is the first version of the project. 
+I am working alone, and there is no production version yet. 
+Otherwise, branches would be required for changes in the project.
