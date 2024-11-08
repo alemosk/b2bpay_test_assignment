@@ -166,8 +166,3 @@ REST_FRAMEWORK = {
     'UNAUTHENTICATED_USER': None,
     'UNAUTHENTICATED_TOKEN': None,
 }
-MIGRATION_MODULES = {
-    'b2bpay': None,
-    'b2bpay.finances.wallets': None,
-    'b2bpay.finances.transactions': None,
-}

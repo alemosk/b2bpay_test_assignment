@@ -6,5 +6,5 @@ app_name = "wallets"
 
 urlpatterns = [
     path('', WalletsListCreateAPIView.as_view(), name='list'),
-    path('wallets/<int:pk>/', WalletsDetailAPIView.as_view(), name='detail'),
+    path('<int:pk>/', WalletsDetailAPIView.as_view(), name='detail'),
 ]

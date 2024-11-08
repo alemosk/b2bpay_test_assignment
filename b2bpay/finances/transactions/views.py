@@ -1,4 +1,4 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
 from rest_framework_json_api import filters
 from rest_framework_json_api import django_filters
 
@@ -23,3 +23,8 @@ class TransactionsListCreateAPIView(ListCreateAPIView):
        'txid': ('exact', 'iexact', 'startswith'),
     }
     ordering_fields = ['id', 'amount', 'wallet', 'txid']
+
+
+class TransactionsDetailAPIView(RetrieveAPIView):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
