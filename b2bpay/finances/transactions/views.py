@@ -23,11 +23,3 @@ class TransactionsListCreateAPIView(ListCreateAPIView):
        'txid': ('exact', 'iexact', 'startswith'),
     }
     ordering_fields = ['id', 'amount', 'wallet', 'txid']
-
-    def perform_create(self, serializer: TransactionSerializer):
-        # the save logic implemented in the different method due to balance calculation and balance check reason.
-        create_transaction(
-            serializer.validated_data['wallet'],
-            serializer.validated_data['txid'],
-            serializer.validated_data['amount'],
-        )

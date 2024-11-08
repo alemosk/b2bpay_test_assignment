@@ -9,3 +9,4 @@ class WalletSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wallet
         fields = '__all__'
+        # resource_name = 'Wallet'

@@ -1,6 +1,7 @@
 from rest_framework_json_api import serializers
 
 from b2bpay.finances.transactions.models import Transaction
+from b2bpay.finances.transactions.services import create_transaction
 from b2bpay.finances.wallets.models import Wallet
 
 
@@ -11,3 +12,12 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = '__all__'
+        # resource_name = 'Transaction'
+
+    def save(self, **kwargs):
+        # the save logic implemented in the different method due to balance calculation and balance check reason.
+        return create_transaction(
+            self.validated_data['wallet'],
+            self.validated_data['txid'],
+            self.validated_data['amount'],
+        )
