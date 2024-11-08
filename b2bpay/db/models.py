@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from sqlalchemy import Table, Column, String, DECIMAL, Integer, MetaData, CheckConstraint, ForeignKey
+from sqlalchemy import DECIMAL, CheckConstraint, Column, ForeignKey, Integer, MetaData, String, Table
 
 metadata = MetaData()
 

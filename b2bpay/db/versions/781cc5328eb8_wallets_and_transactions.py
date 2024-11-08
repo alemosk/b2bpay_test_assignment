@@ -1,15 +1,14 @@
 """Wallets and Transactions
 
 Revision ID: 781cc5328eb8
-Revises: 
+Revises:
 Create Date: 2024-11-07 19:33:50.352594
 
 """
 from typing import Sequence, Union
 
-from alembic import op
 import sqlalchemy as sa
-
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision: str = '781cc5328eb8'
